@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/21/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2016/06/22/Github-Hexo-blog-building-issues/" itemprop="url">
+                  搭建静态博客遇到的一些问题
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-21T21:33:31+08:00" content="2016-06-21">
-              2016-06-21
+            <time itemprop="dateCreated" datetime="2016-06-22T20:20:02+08:00" content="2016-06-22">
+              2016-06-22
             </time>
           </span>
 
@@ -283,8 +283,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/21/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/21/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/06/22/Github-Hexo-blog-building-issues/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/Github-Hexo-blog-building-issues/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -309,15 +309,22 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h1 id="Github-Hexo-搭建静态博客遇到的一些问题"><a href="#Github-Hexo-搭建静态博客遇到的一些问题" class="headerlink" title="Github + Hexo 搭建静态博客遇到的一些问题"></a>Github + Hexo 搭建静态博客遇到的一些问题</h1><p>网上关于Github+Hexo搭建的文章很多了，我这里就不再详细介绍搭建步骤了，主要讲讲在解决博客的多PC同步中中遇到的一些问题，希望跟我一样的新手们能少走一些弯路。<br>我搭建博客时候参考的是这篇博文<a href="http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">GitHub Pages + Hexo搭建博客</a>,在这里先谢谢作者了。不过在搭建过程中遇到了一些问题，搜索引擎各种搜索，捣鼓了2天时间才算最终搞定。  </p>
+<h3 id="多PC同步的搭建过程"><a href="#多PC同步的搭建过程" class="headerlink" title="多PC同步的搭建过程"></a>多PC同步的搭建过程</h3><ol>
+<li>在本地文件夹(如D:\hexo)并参考<a href="https://xuanwo.org/2015/03/26/hexo-intor/" target="_blank" rel="external">如何利用GitHub Pages和Hexo快速搭建个人博客</a>，在一台pc上搭建好博客</li>
+<li>在第一步中已创建的仓库just-tao.github.io中创建hexo分支并设置为默认分支(为了以后更新不出错设为默认)，此时有master与hexo两个分支</li>
+<li>将hexo文件夹下的所有.git文件夹删除(包括子文件夹得.git，防止与已创建的仓库产生冲突)，同时编辑hexo自动生成的.npmignore文件（我将其改名为了.gitignore，不改也可以），改为以下内容  <pre><code>/.deploy_git
+/public  
+/_config.yml
+</code></pre></li>
+<li>在hexo文件夹上运行git bash，执行以下命令<pre><code>git init
+git remote add origin git@github.com:just-tao/just-tao.github.io.git
+git add .
+git commit -m &quot;Blog created&quot;
+git push origin hexo
+</code></pre>这样一台新的电脑上，只需git clone到本地文件夹，就可以在新的电脑上进行博客的写作与发布了。在git clone过程中我发现win7系统的一个问题，就是限制了最长的文件名长度，导致git clone过后，文件下载不全。<br>解决方法是在git clone前新建一个文件夹，并git bash执行以下命令。<pre><code>git config --system core.longpaths true
+</code></pre>第一次写博客，写的不好还请见谅。有什么问题欢迎讨论。</li>
+</ol>
 
           
         
