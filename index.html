@@ -258,6 +258,126 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/28/Android-Gradle/" itemprop="url">
+                  Android Studio Gradle build 卡住的解决方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T20:33:46+08:00" content="2016-06-28">
+              2016-06-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/Android-Gradle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/Android-Gradle/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Google推出的Android Studio跟Eclipse相比好用多了，但唯一的缺点就是由于GFW的原因导致下载某些组件的时候特别的慢，就算用了VPN Android Studio下载Gradle也非常的慢。所以经常在Build项目的时候老是卡在Gradle相关的地方，这里分享下我遇到问题和解决方法。<br>当Android Studio卡住的时候，关闭Android Studio，然后到项目目录下运行cmd命令行工具（Git Bash命令行也可以）。执行以下命令：<br><code>gradlew assembleDebug</code><br>这时会显示（我的gradle版本是2.10）<br><code>Downloading gradle-2.10-all.zip</code><br>这时候按Ctrl+C停止命令执行，这个过程会在<code>C:\Users\你的用户名\.gradle\wrapper\dists\gradle-2.10-all\a4w5fzrkeut1ox71xslb49gst</code>生成gradle-2.10-all.zip.lck与gradle-2.10-all.zip.part文件。这时候请到Gradle官网下载相应version的gradle，访问官网可能需要挂VPN，没有VPN请去百度找相应的资源。（注意如果挂VPN访问官网在点击下载链接的时候请断开VPN，否则无法访问）<br>下载完成后，请将下载的gradle-2.10-all.zip拷贝到<code>C:\Users\你的用户名\.gradle\wrapper\dists\gradle-2.10-all\a4w5fzrkeut1ox71xslb49gst</code>目录，并删除gradle-2.10-all.zip.part，同时复制gradle-2.10-all.zip.lck并且改名为gradle-2.10-all.zip.ok。<br>再次在命令行工具里执行：<br><code>gradlew assembleDebug</code><br>这时候你会发现没有Downloading的提示了，说明已经识别到了我们下载的gradle版本，现在只需等待gradle下载编译所需要的库并build生成debug app了。我建议大家以后第一次build的时候都以命令行方式进行而不要用Android Studio进行编译，因为命令行进行gradle build可以显示build过程的详细信息，比如下载哪些库，编译出现哪些错误，这样就不会出现在Android Studio中build不知道在哪里卡住的情况了。第一次build成功之后以后就可以在Android Studio中进行build了，不用再担心卡住的问题了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/22/Github-Hexo-blog-building-issues/" itemprop="url">
                   Github + Hexo 搭建静态博客遇到的一些问题
                 </a>
@@ -277,6 +397,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/杂项/" itemprop="url" rel="index">
+                    <span itemprop="name">杂项</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -324,8 +463,7 @@ git commit -m &quot;Blog created&quot;
 git push origin hexo
 </code></pre>这样一台新的电脑上，只需git clone到本地文件夹，就可以在新的电脑上进行博客的写作与发布了。 </li>
 </ol>
-<p>###遇到的问题</p>
-<hr>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><hr>
 <p>在git clone过程中我发现win7系统的一个问题，就是限制了最长的文件名长度，导致git clone过后，文件下载不全。<br>解决方法是在git clone前新建一个文件夹，并git bash执行以下命令。</p>
 <pre><code>git config --system core.longpaths true
 </code></pre><p>在多PC同步使用过程中，因为没有掌握好多个PC更新网站的顺序，导致突然出现404页面。试过了这篇博文-<a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/#Deploy%E4%B9%8B%E5%90%8E%EF%BC%8C%E9%A1%B5%E9%9D%A2%E9%95%BF%E6%97%B6%E9%97%B4404" target="_blank" rel="external">Hexo常见问题解决方案</a>的方法也没法解决。后来才通过搜索发现我更新到just-tao.github.io库master分支的文件竟然是Hexo文件夹下的所有文件，正常情况下应该是.deploy_git文件夹下的所有文件，最终的解决方案就是删除本地hexo的.deploy_git文件夹，再重新生成更新就可以了。</p>
@@ -399,13 +537,27 @@ git push origin hexo
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>

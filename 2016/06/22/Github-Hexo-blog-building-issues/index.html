@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-Blog," />
 
 
 
@@ -96,7 +96,7 @@
 多PC同步的搭建过程
 
 在本地文件夹(如D:\hex">
-<meta property="og:updated_time" content="2016-06-24T12:40:27.090Z">
+<meta property="og:updated_time" content="2016-06-28T13:23:53.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github + Hexo 搭建静态博客遇到的一些问题">
 <meta name="twitter:description" content="网上关于Github+Hexo搭建的文章很多了，我这里就不再详细介绍搭建步骤了，主要讲讲在解决博客的多PC同步中中遇到的一些问题，希望跟我一样的新手们能少走一些弯路。我搭建博客时候参考的是这篇博文GitHub Pages + Hexo搭建博客,在这里先谢谢作者了。不过在搭建过程中遇到了一些问题，搜索引擎各种搜索，捣鼓了2天时间才算最终搞定。  
@@ -283,6 +283,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/杂项/" itemprop="url" rel="index">
+                    <span itemprop="name">杂项</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -327,8 +346,7 @@ git commit -m &quot;Blog created&quot;
 git push origin hexo
 </code></pre>这样一台新的电脑上，只需git clone到本地文件夹，就可以在新的电脑上进行博客的写作与发布了。 </li>
 </ol>
-<p>###遇到的问题</p>
-<hr>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><hr>
 <p>在git clone过程中我发现win7系统的一个问题，就是限制了最长的文件名长度，导致git clone过后，文件下载不全。<br>解决方法是在git clone前新建一个文件夹，并git bash执行以下命令。</p>
 <pre><code>git config --system core.longpaths true
 </code></pre><p>在多PC同步使用过程中，因为没有掌握好多个PC更新网站的顺序，导致突然出现404页面。试过了这篇博文-<a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/#Deploy%E4%B9%8B%E5%90%8E%EF%BC%8C%E9%A1%B5%E9%9D%A2%E9%95%BF%E6%97%B6%E9%97%B4404" target="_blank" rel="external">Hexo常见问题解决方案</a>的方法也没法解决。后来才通过搜索发现我更新到just-tao.github.io库master分支的文件竟然是Hexo文件夹下的所有文件，正常情况下应该是.deploy_git文件夹下的所有文件，最终的解决方案就是删除本地hexo的.deploy_git文件夹，再重新生成更新就可以了。</p>
@@ -352,7 +370,27 @@ git push origin hexo
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Blog/" rel="tag">#-Blog</a>
+          
+        </div>
+      
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/28/Android-Gradle/" rel="prev" title="Android Studio Gradle build 卡住的解决方法">
+                Android Studio Gradle build 卡住的解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -421,13 +459,27 @@ git push origin hexo
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -453,7 +505,7 @@ git push origin hexo
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多PC同步的搭建过程"><span class="nav-number">1.</span> <span class="nav-text">多PC同步的搭建过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多PC同步的搭建过程"><span class="nav-number">1.</span> <span class="nav-text">多PC同步的搭建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">2.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
             
           </div>
         </section>
